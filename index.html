@@ -1,11 +1,34 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Simple Countdown</title>
-  </head>
-  <body>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#days {
+	text-align: center;
+	font-size: 60px;
+	font-family: Lato, sans-serif;
+}
+</style>
+</head>
+<body>
 
-    <h1>This is a Heading</h1>
+<div id="days"></div>
 
-  </body>
+<script>
+var countDownDate = new Date("2050-01-01 00:00:00").getTime();
+if (window.location.hash.length == 15) {
+	countDownDate = new Date(window.location.hash.substr(1,4)
+		+"-"+window.location.hash.substr(5,2)
+		+"-"+window.location.hash.substr(7,2)
+		+" "+window.location.hash.substr(9,2)
+		+":"+window.location.hash.substr(11,2)
+		+":"+window.location.hash.substr(13,2)).getTime();
+}
+var x = setInterval(function() {
+	var now = new Date().getTime();
+	document.getElementById("days").innerHTML = Math.floor((countDownDate - now) / (1000 * 60 * 60 * 24)) + " days";
+	//document.getElementById("days").innerHTML = window.location.hash;
+}, 3600) + "days";
+</script>
+</body>
 </html>
