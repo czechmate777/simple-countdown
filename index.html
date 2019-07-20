@@ -16,14 +16,11 @@
 
 <script>
 	var elem = document.getElementById("days");
-	var countDownDate = new Date("2050-01-01 00:00:00").getTime();
-	if (window.location.hash.length >= 15) {
+	var countDownDate = new Date("2050/01/01").getTime();
+	if (window.location.hash.length >= 9) {
 		countDownDate = new Date(window.location.hash.substr(1,4)
-			+"-"+window.location.hash.substr(5,2)
-			+"-"+window.location.hash.substr(7,2)
-			+" "+window.location.hash.substr(9,2)
-			+":"+window.location.hash.substr(11,2)
-			+":"+window.location.hash.substr(13,2)).getTime();
+			+"/"+window.location.hash.substr(5,2)
+			+"/"+window.location.hash.substr(7,2)).getTime();
 	}
 	if (window.location.hash.length >= 21) {
 		elem.style = "color:#"+window.location.hash.substr(15,6);
